@@ -1,0 +1,63 @@
+html,body {
+	height: 100%; 
+}
+body {
+	font-family: 'helvetica';
+}
+h1, h2, h3, h4, h5, h6, p, a, div, ul, ol, li, body {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+.c1 {
+	color: white;
+}
+.bg1 {
+	background-color:  rgb(137, 92, 255);
+}
+.bg2 {
+	background-color: #00f7cf;
+}
+.bg3 {
+	background-color: #03e8f9;
+}
+.bg4 {
+	background-color: gray;
+}
+.bg5 {
+	background-color: #24aaff;
+}
+.bg6 {
+	background-color: #148cd8;
+}
+.center {
+	text-align: center;
+}
+#header {
+	padding: 15px;
+}
+#main {
+	height: 100%;
+}
+#footer {
+	padding: 15px;
+}
+#snap-photo-description {
+	padding: 10px;
+}
+.upload-image-form-input {
+	margin-bottom: 15px;
+}
+#upload-image {
+	margin-top: 50px;
+}
+#image-submit {
+	width: 60px;
+	height: 60px;
+	border-radius: 100%;
+  	border:none;
+}
+#image-file {
+	border-radius: 50px;
+	padding: 15px;
+}

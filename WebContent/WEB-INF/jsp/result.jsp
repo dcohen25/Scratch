@@ -10,10 +10,10 @@
 <body>
 <table>
 <tbody>
-<tr><th>Code</th></tr>
-<c:forEach items="${topcodes}" var="topcode">
+<tr><th>Commands</th></tr>
+<c:forEach items="${commands}" var="command">
     <tr>      
-        <td>${topcode.code}</td>
+        <td>${command}</td>
     </tr>
 </c:forEach>
 </tbody>

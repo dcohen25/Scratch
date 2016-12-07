@@ -2,11 +2,31 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home</title>
+<title>ScratchBlocks</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
-<body>
-<form action="Upload" method="post" enctype="multipart/form-data">
-<input name="file" type="file" accept="image/*;capture=camera">
-<input type="submit" value="Upload">
+<body class="center c1">
+	<div id="header" class="bg1">
+		<h2>ScratchBlocks</h2>
+	</div>
+	<div id="main">
+		<div id="snap-photo-description" class="bg2">
+			<h3>Snap a ScratchBlocks program!</h3>
+		</div>
+		<div id="upload-image">
+			<form id="upload-image-form" action="UploadImage" method="post" enctype="multipart/form-data">
+				<div class="upload-image-form-input">
+					<input id="image-file" class="bg6" name="file" type="file" accept="image/*;capture=camera">	
+				</div>
+				<div class="upload-image-form-input">
+					<input id="image-submit" class="bg5 c1" type="submit" value="Snap">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="footer" class="bg4">
+		<h3>By Rishab Singh and David Cohen</h3>
+	</div>
 </body>
 </html>
