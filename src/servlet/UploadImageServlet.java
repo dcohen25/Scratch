@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +30,13 @@ import org.codehaus.jackson.map.ObjectWriter;
 
 import data.ProgramData;
 import exception.ProcessImageException;
+import se.nicklasgavelin.bluetooth.Bluetooth;
+import se.nicklasgavelin.bluetooth.BluetoothDevice;
+import se.nicklasgavelin.sphero.Robot;
+import se.nicklasgavelin.sphero.command.RGBLEDCommand;
+import se.nicklasgavelin.sphero.command.RollCommand;
 import service.UploadImageService;
+import sphero.ConnectThread;
 
 /**
  * Servlet implementation class UploadImageServlet
@@ -68,7 +75,7 @@ public class UploadImageServlet extends HttpServlet {
 			ObjectWriter ow = new ObjectMapper().writer();
 			String json = ow.writeValueAsString(programData);
 			HttpClient httpClient =  HttpClients.createDefault();
-	        HttpPost httpPost = new HttpPost("https://scratchblocksnodeserver.herokuapp.com/uploadProgram");
+			HttpPost httpPost = new HttpPost("http://138.16.161.41:8080");
 			httpPost.addHeader("content-type", "application/x-www-form-urlencoded");
 	        List<NameValuePair> nvps = new ArrayList <NameValuePair>();
 	        nvps.add(new BasicNameValuePair("data", json));
@@ -80,11 +87,13 @@ public class UploadImageServlet extends HttpServlet {
 	            String postResponse = EntityUtils.toString(responseEntity);
 	            System.out.println(postResponse);
 	        }
+	        request.setAttribute("successMessage", "Succesfully processed image request");
 		}
 	    catch (ProcessImageException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	 	
+	    	request.setAttribute("failureMessage", "Failed to process image request: " + e.getMessage());
+	    	e.printStackTrace();
+		}
+        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        rd.forward(request, response);
 	}
-
 }

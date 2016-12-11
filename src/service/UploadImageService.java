@@ -47,13 +47,13 @@ public class UploadImageService {
 	private static String getDevice(TopCode topCode) throws DeviceNotFoundException {
 		String device;
 		switch (topCode.getCode()) {
-			case 61:	device = "ifttt";
+			case 61:	device = "rccar";
 					 	break;
 			case 79:	device = "ardrone";
 						break;
 			case 87:	device = "phillipshue";
 						break;
-			case 91: 	device = "rccar";
+			case 91: 	device = "ifttt";
 						break;
 			case 103:	device = "sphero";
 						break;
@@ -81,23 +81,13 @@ public class UploadImageService {
 	private static String parseCommand(TopCode topcode) throws CommandNotFoundException {
 		String command;
 		switch (topcode.getCode()) {
-			case 31:	command = "text";
+			case 31:	command = "move-forward";
 					 	break;
-			case 47:	command = "email";
+			case 47:	command = "move-backward";
 						break;
-			case 55:	command = "call";
+			case 55:	command = "turn-left";
 						break;
-			case 59: 	command = "tweet";
-						break;
-			case 103:	command = "forward";
-						break;
-			case 107:	command = "backward";
-						break;
-			case 109:	command = "left";
-						break;
-			case 115:	command = "right";
-						break;
-			case 117:	command = "stop";
+			case 59: 	command = "turn-right";
 						break;
 			default:	throw new CommandNotFoundException("Invalid command code: "  + topcode.getCode());
 		}
